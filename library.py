@@ -15,7 +15,15 @@ def add_book():
 
 
 def view_books():
-    print("View book placeholder.")
+    if not library:
+        print("No books found.")
+        return
+
+    print("\n--- BOOK LIST ---")
+    for idx, book in enumerate(library, start=1):
+        status = "Available" if book['is_available'] else "Not available"
+        print(f"{idx}. {book['title']} - {book['author']} ({status})")
+
 
 def search_book():
     print("Search book placeholder.")
